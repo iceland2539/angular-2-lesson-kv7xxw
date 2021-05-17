@@ -1,0 +1,29 @@
+<div class="center">
+  <h2>Table</h2>
+</div>
+
+<div class="center">
+  <table id="table-2">
+    <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let textx of text ">
+        <td *ngFor="let texty of textx ">
+          {{ texty.name }}
+          <input type="text"[(ngModel)]="texty.name" (change)="inputchange()">
+          <input type="checkbox" [(ngModel)]="texty.checked" (change)="checkboxchange()">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="center">
+  <button style="center" (click)="postMethod()">Submit</button>
+</div>

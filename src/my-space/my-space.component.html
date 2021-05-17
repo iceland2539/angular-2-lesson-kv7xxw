@@ -1,0 +1,27 @@
+<h3>{{ editabletext1 }}</h3>
+<input type="text" (change)="inputchange()" [(ngModel)]="editabletext1">
+<button (click)="button1Click()">Click</button>
+
+<br>
+<br>
+
+
+<input type="text" [(ngModel)]="text1">
+<div *ngIf="text1 == 'ok'">
+  <h3> OK</h3>
+</div>
+<div *ngIf="text1 != 'ok'">
+  <h3> Not ok</h3>
+</div>
+
+
+<div *ngFor="let text1 of text; let i = index">
+  <div><b>{{ text1 }} </b></div>
+</div>
+
+<div>
+  <button (click)="getMethod()">Sent GET request</button>
+  <button (click)="postMethod()">Sent POST request</button>
+  <button (click)="putMethod()">Sent PUT request</button>
+  <button (click)="deleteMethod()">Sent DELETE request</button>
+</div>

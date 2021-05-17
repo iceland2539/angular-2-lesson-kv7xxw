@@ -1,0 +1,14 @@
+<h2>4. If cause</h2>
+
+<div *ngIf="1+1 == 2">
+  <h3>That's true</h3>
+</div>
+
+<input type="checkbox" [(ngModel)]="checkbox1"> If
+<div *ngIf="checkbox1 != true"><h3>Nothing is true</h3></div>
+
+<div></div>
+
+<input type="checkbox" [(ngModel)]="checkbox2"> If Else
+<div *ngIf="checkbox2; else elseBlockId"><h3>If Condition!!</h3></div>
+<ng-template #elseBlockId><h3>Else Condition!!</h3></ng-template>

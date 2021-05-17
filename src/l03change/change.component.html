@@ -1,0 +1,12 @@
+<h2>3. On Change</h2>
+<input type="text" (change)="input1Change($event.target.value)">
+
+<input type="checkbox" (change)="checkbox1Change($event.target.checked)">
+
+<h3>{{ select1 }}</h3>
+<select id="select-1" [(ngModel)]="select1" (change)="select1Change()">
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+</select>

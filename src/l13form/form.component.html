@@ -1,0 +1,17 @@
+<h2>13. Form</h2>
+<form [formGroup]="form" (submit)="submit()">
+  <div>
+    <input type="text" formControlName="test1" >
+  </div>
+  <div>
+    <input type="text" formControlName="test2" > Disable
+  </div>
+  <div>
+    <input type="text" formControlName="test3" >
+    <i *ngIf="form.controls.test3.invalid && (form.controls.test3.dirty || form.controls.test3.touched)" > Required! </i>
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+    <input type="button" value="Reset" (click)="reset()">
+  </div>
+</form>
