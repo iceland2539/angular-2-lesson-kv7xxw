@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import  templateString  from './service.component.html';
+import templateString from './service.component.html';
 import { ServiceService } from './service.service';
 
 @Component({
@@ -7,44 +7,45 @@ import { ServiceService } from './service.service';
   providers: [ServiceService]
 })
 export class ServiceComponent implements OnInit {
+  constructor(private serviceService: ServiceService) {}
 
-  constructor(private serviceService: ServiceService ) { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  getMethod() {
+    this.serviceService.all().subscribe(function(result: any) {
+      console.log('>>>>>Success');
+      console.log(result);
+    });
   }
 
-  getMethod(){
-    this.serviceService.all()
-        .subscribe(function(result: any){
-          console.log(">>>>>Success");
-          console.log(result);
-        });
+  postMethod() {
+    this.serviceService.create({ name: 'Eve', age: 16 }).subscribe(
+      (result: any) => {
+        console.log('>>>>>Success');
+        console.log(result);
+      },
+      (error: any) => {
+        console.log('>>>>>Error');
+        console.log(error);
+      }
+    );
   }
 
-  postMethod(){
-    this.serviceService.create({ name: "Eve", age: 16 })
-        .subscribe((result: any) => {
-          console.log(">>>>>Success");
-          console.log(result);
-        }, (error: any) => {
-          console.log(">>>>>Error");
-          console.log(error);
-        });
+  putMethod() {
+    this.serviceService
+      .update({ name: 'Eve', age: 16 })
+      .subscribe((result: any) => {
+        console.log('>>>>>Success');
+        console.log(result);
+      });
   }
 
-  putMethod(){
-    this.serviceService.update({ name: "Eve", age: 16 })
-        .subscribe((result: any) => {
-          console.log(">>>>>Success");
-          console.log(result);
-        });
-  }
-
-  deleteMethod(){
-    this.serviceService.delete({ name: "Eve", age: 16 })
-        .subscribe((result: any) => {
-          console.log(">>>>>Success");
-          console.log(result);
-        });
+  deleteMethod() {
+    this.serviceService
+      .delete({ name: 'Eve', age: 16 })
+      .subscribe((result: any) => {
+        console.log('>>>>>Success');
+        console.log(result);
+      });
   }
 }

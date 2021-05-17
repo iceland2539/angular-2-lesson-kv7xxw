@@ -58,13 +58,15 @@ export class MySpace2Component implements OnInit {
   }
 
   postMethod() {
-    this.serviceService.create({ name: 'Eve', age: 16 }).subscribe(
+    this.serviceService.create(this.text).subscribe(
       (result: any) => {
+        console.log(this.text);
         console.log('>>>>>Success');
         console.log(result);
       },
       (error: any) => {
         console.log('>>>>>Error');
+        console.log(this.text);
         console.log(error);
       }
     );
